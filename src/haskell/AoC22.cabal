@@ -1,8 +1,12 @@
-name: day1
+name: AoC22
 version: 0.0.1
 build-type: Simple
 cabal-version: >= 1.2
 
 executable day1
   main-is: day1.hs
+  build-depends: base >= 4.16, split
+
+executable day2 
+  main-is: day2.hs
   build-depends: base >= 4.16, split
