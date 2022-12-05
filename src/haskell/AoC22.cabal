@@ -10,3 +10,8 @@ executable day1
 executable day2 
   main-is: day2.hs
   build-depends: base >= 4.16, split
+
+
+executable day5
+  main-is: day5.hs
+  build-depends: base >= 4.16, split
