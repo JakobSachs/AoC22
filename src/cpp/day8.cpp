@@ -138,6 +138,7 @@ int main()
     tree_map.push_back(row);
   }
 
+  input_file.close();
   /*                              Calculate                                  */
   auto res = solve(tree_map);
   auto res1 = res.first;

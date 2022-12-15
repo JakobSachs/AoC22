@@ -8,15 +8,15 @@
 /*                                  DAY 1                                     */
 
 #include <algorithm>
+#include <chrono>
 #include <cstdint>
 #include <cstdlib>
-#include <iostream>
 #include <fstream>
+#include <iostream>
 #include <numeric>
 #include <ostream>
 #include <sstream>
 #include <string>
-#include <chrono>
 #include <vector>
 
 int32_t solve1(
@@ -81,6 +81,7 @@ int main()
     file_content.push_back(calories);
   }
 
+  input_file.close();
   /*                              Calculate                                  */
   auto res1 = solve1(file_content);
   auto res2 = solve2(file_content);
@@ -92,7 +93,7 @@ int main()
 
   auto end_time = std::chrono::high_resolution_clock::now();
   std::chrono::duration<double, std::micro> mis_double = end_time - start_time;
-  
+
   std::cout << "\nTotal duration:\t" << mis_double.count() << "μs" << std::endl;
 
   return 0;

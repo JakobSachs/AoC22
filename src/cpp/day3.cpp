@@ -104,6 +104,7 @@ int main()
     file_content.push_back(line);
   }
 
+  input_file.close();
   /*                              Calculate                                  */
   auto res1 = solve1(file_content);
   auto res2 = solve2(file_content);

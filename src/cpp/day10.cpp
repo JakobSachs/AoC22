@@ -139,7 +139,7 @@ int main()
   vector<operation> ops;
   std::string line;
   while (getline(input_file, line)) ops.push_back(parse_op(line));
-
+  input_file.close();
   /*                              Calculate */
   auto res1 = solve1(ops);
   std::cout << "Result 1:\t" << res1 << std::endl;

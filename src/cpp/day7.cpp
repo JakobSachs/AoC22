@@ -5,7 +5,7 @@
 /*             /_/  |_\____/\____/   /____/\____/____/____/                   */
 /*                                                                            */
 
-/*                                  DAY 4                                     */
+/*                                  DAY 7                                     */
 
 #include <algorithm>
 #include <cstddef>
@@ -23,69 +23,35 @@
 #include <utility>
 #include <set>
 #include <vector>
+#include <deque>
 
-int32_t solve1(std::vector<std::pair<std::pair<int, int>, std::pair<int, int>>>
-                   file_content)  // Solution for the second part
-
+int32_t solve1(const std::string& signal)
 {
-  int32_t count = 0;
 
-  for (auto pair : file_content)
-  {
-    if (pair.first.first <= pair.second.first &&
-        pair.first.second >= pair.second.second)
-      count++;
-    else if (pair.first.first >= pair.second.first &&
-             pair.first.second <= pair.second.second)
-      count++;
-    else
-      continue;
-  }
-
-  return count;
+  return -1;
 }
 
-int32_t solve2(std::vector<std::pair<std::pair<int, int>, std::pair<int, int>>>
-                   file_content)  // Solution for the second part
-
+int32_t solve2(std::string signal)
 {
-  int32_t count = 0;
-
-  for (auto pair : file_content)
-  {
-    if (std::max(pair.first.first, pair.second.first) <=
-        std::min(pair.first.second, pair.second.second))
-      count++;
-  }
-
-  return count;
+  return -1;
 }
 
 int main()
 {
   /*                               Input                                    */
-
   auto start_time = std::chrono::high_resolution_clock::now();
-  std::ifstream input_file("../../data/day4.txt");
+  std::ifstream input_file("../../data/day7.txt");
 
   if (!input_file.is_open()) return -1;
 
   std::string line;
-  std::vector<std::pair<std::pair<int, int>, std::pair<int, int>>> file_content;
-
-  while (getline(input_file, line))
-  {
-    std::pair<std::pair<int, int>, std::pair<int, int>> pair;
-
-    sscanf(line.c_str(), "%d - %d,%d - %d", &pair.first.first,
-           &pair.first.second, &pair.second.first, &pair.second.second);
-    file_content.push_back(pair);
-  }
+  
 
   input_file.close();
+
   /*                              Calculate                                  */
-  auto res1 = solve1(file_content);
-  auto res2 = solve2(file_content);
+  auto res1 = solve1(line);
+  auto res2 = solve2(line);
 
   /*                              Output                                     */
 

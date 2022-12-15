@@ -117,6 +117,7 @@ int main()
     moves.push_back(move);
   }
 
+  input_file.close();
   /*                              Calculate                                  */
   auto res1 = solve1(moves, stacks);
   auto res2 = solve2(moves, stacks);

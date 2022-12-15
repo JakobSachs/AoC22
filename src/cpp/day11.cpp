@@ -5,80 +5,66 @@
 /*             /_/  |_\____/\____/   /____/\____/____/____/                   */
 /*                                                                            */
 
-/*                                  DAY 6                                     */
+/*                                  DAY 11                                    */
 
+#include <math.h>
 #include <algorithm>
+#include <array>
+#include <chrono>
+#include <cmath>
 #include <cstddef>
 #include <cstdint>
 #include <cstdio>
 #include <cstdlib>
-#include <iostream>
+#include <deque>
 #include <fstream>
+#include <iostream>
 #include <iterator>
+#include <map>
 #include <numeric>
 #include <ostream>
+#include <set>
 #include <sstream>
 #include <string>
-#include <chrono>
+#include <tuple>
 #include <utility>
-#include <set>
 #include <vector>
-#include <deque>
 
-bool is_marker(const std::string& marker)
+using namespace std;
+struct monkey
 {
-  // simple brute force
-  for (int i = 0; i < marker.length() - 1; i++)
-  {
-    for (int j = i + 1; j < marker.length(); j++)
-    {
-      if (marker[i] == marker[j]) return false;
-    }
-  }
+  const vector<int32_t> starting_items;
+  const function<int32_t(const int32_t)> operation;
+  const int32_t divisor;
+  const size_t next_monkey_true;
+  const size_t next_monkey_false;
+};
 
-  return true;
-}
+int32_t solve1();
 
-int32_t solve1(const std::string& signal)
-{
-  for (size_t i = 0; i < signal.length() - 4; i++)
-  {
-    if (is_marker(signal.substr(i, 4))) return i + 4;
-  }
-
-  return -1;
-}
-
-int32_t solve2(std::string signal)
-{
-  for (size_t i = 0; i < signal.length() - 14; i++)
-  {
-    if (is_marker(signal.substr(i, 14))) return i + 14;
-  }
-  return -1;
-}
+int32_t solve2();
 
 int main()
 {
   /*                               Input                                    */
   auto start_time = std::chrono::high_resolution_clock::now();
-  std::ifstream input_file("../../data/day6.txt");
+  std::ifstream input_file("../../data/day11.txt");
 
   if (!input_file.is_open()) return -1;
 
-  std::string line;
-
-  getline(input_file, line);
+  stringstream sstr;
+  while (input_file >> sstr.rdbuf())
+    ;
 
   input_file.close();
-  /*                              Calculate                                  */
-  auto res1 = solve1(line);
-  auto res2 = solve2(line);
 
-  /*                              Output                                     */
-
+  /*                              Calculate */
+  auto res1 = solve1();
+  auto res2 = solve1();
   std::cout << "Result 1:\t" << res1 << std::endl;
   std::cout << "Result 2:\t" << res2 << std::endl;
+
+  /*                              Output */
 
   auto end_time = std::chrono::high_resolution_clock::now();
   std::chrono::duration<double, std::micro> mis_double = end_time - start_time;

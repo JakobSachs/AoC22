@@ -8,15 +8,15 @@
 /*                                  DAY 2                                     */
 
 #include <algorithm>
+#include <chrono>
 #include <cstdint>
 #include <cstdlib>
-#include <iostream>
 #include <fstream>
+#include <iostream>
 #include <numeric>
 #include <ostream>
 #include <sstream>
 #include <string>
-#include <chrono>
 #include <utility>
 #include <vector>
 
@@ -56,8 +56,8 @@ int32_t get_fixed_score(char opponent, char fixed_result)
     case 'Y':  // draw
       player_choice = opponent + offset;
       break;
-    case 'X':  // lose
-      if (opponent == 'A') // cant think of a more generic solution on the spot
+    case 'X':               // lose
+      if (opponent == 'A')  // cant think of a more generic solution on the spot
         player_choice = 'Z';
       else
         player_choice = opponent - 1 + offset;
@@ -112,6 +112,7 @@ int main()
     file_content.push_back(pair);
   }
 
+  input_file.close();
   /*                              Calculate                                  */
   auto res1 = solve1(file_content);
   auto res2 = solve2(file_content);
