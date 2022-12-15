@@ -1,5 +1,5 @@
 CC=clang++
-DAYS=day1.cpp day2.cpp day3.cpp day4.cpp day5.cpp day6.cpp day8.cpp
+DAYS=day1.cpp day2.cpp day3.cpp day4.cpp day5.cpp day6.cpp day8.cpp day9.cpp day10.cpp day11.cpp
 DAYS_OBJ=$(subst .cpp,.o,$(DAYS))
 
 all: days
